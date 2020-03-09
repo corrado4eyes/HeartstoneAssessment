@@ -133,8 +133,8 @@ export const onSaveCardFailedConstructor = (error: any): OnSaveCardFailedAction 
 export const dispatchSaveCard = (card: Card) => {
     return (dispatch: Dispatch<CardActionsType>, getState: () => RootState, serviceFactory: ServiceFactory) => {
         dispatch(onSaveCardConstructor())
-        // const cardService = serviceFactory.getFirebaseCardService().save(card)
-        const cardService = serviceFactory.getCardService().save(card)
+        const cardService = serviceFactory.getFirebaseCardService().save(card)
+        // const cardService = serviceFactory.getCardService().save(card)
         .then(() => {
             dispatch(onSaveCardSucceedConstructor(card))
         })
@@ -147,8 +147,8 @@ export const dispatchSaveCard = (card: Card) => {
 export const dispatchSyncCard = (cardSet: CardSet | undefined = undefined) => {
     return (dispatch: Dispatch<CardActionsType>, getState: () => RootState, serviceFactory: ServiceFactory) => {
         dispatch(onSyncCardsConstructor())
-        // const cardService = serviceFactory.getFirebaseCardService()
-        const cardService = serviceFactory.getCardService()
+        const cardService = serviceFactory.getFirebaseCardService()
+        // const cardService = serviceFactory.getCardService()
         if (cardSet === undefined) {
             cardService.getAll()
             .then((cards: Card[]) => {
@@ -176,8 +176,8 @@ export const checkIfCached = (cardSet: CardSet, state: RootState) => {
 
 export const dispatchFilter = (filter: CardFilters, filterKey: string, enumType: any) => {
     return (dispatch: Dispatch<CardActionsType>, getState: () => RootState, serviceFactory: ServiceFactory) => {
-        // const cardService = serviceFactory.getFirebaseCardService()
-        const cardService = serviceFactory.getCardService()
+        const cardService = serviceFactory.getFirebaseCardService()
+        // const cardService = serviceFactory.getCardService()
         const state = getState()
         // If the filter is about the Rarity
         if(enumType != CardSet) {
